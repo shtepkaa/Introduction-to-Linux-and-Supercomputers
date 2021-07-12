@@ -1,0 +1,8 @@
+==========================================
+SLURM_JOB_ID = 31393
+SLURM_JOB_NODELIST = cn03
+SLURM_GPUS = 
+SLURM_CPUS_ON_NODE = 1
+SLURM_JOB_PARTITION = cpu
+SLURM_TASK_PID = 3128988
+==========================================

@@ -1,0 +1,36 @@
+Fortran optimizing compiler is mentioned among the main algorithmic achievements of humankind during XX century.
+Optimization from the C compiler is also smart even for simple programs. 
+Test the performance of manual OpenMP-parallel matmul (manual_matmul.c) program at your laptops and at Zhores sandbox CPU-based computing nodes with different levels of optimization
+
+-g
+
+-Og
+
+-O1
+
+-O2
+
+-O3
+
+-Ofast
+
+ 
+
+example for work with compiler
+
+gcc manual_matmul.c -fopenmp -O3 -o manual_matmul.exe
+
+with number of threads from 1 to 4 at laptops. And from 1 to 24 at Zhores sandbox. As result attach the table of timings of different versions work and the variation of timings (best practice is to run program several times, evaluate the mean execution time and variation). Matrix sizes should vary from 1024 to 8192 (large sizes might not fit into the RAM of laptop, do not get upset).
+
+Program usage
+
+.manual_matmul.exe 4 1024
+
+Do not forget to measure performance with use of SLURM task manager but not launch the executable at the front-end node!
+
+
+4 -- is number of threads
+
+1024 -- is matrix dimension.
+
+The source code can be found among files with name manual_matmul.c

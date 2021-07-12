@@ -1,0 +1,9 @@
+==========================================
+SLURM_JOB_ID = 31363
+SLURM_JOB_NODELIST = cn03
+SLURM_GPUS = 
+SLURM_CPUS_ON_NODE = 1
+SLURM_JOB_PARTITION = cpu
+SLURM_TASK_PID = 3128837
+==========================================
+slurmstepd: error: *** JOB 31363 ON cn03 CANCELLED AT 2020-11-25T16:28:34 DUE TO TIME LIMIT ***

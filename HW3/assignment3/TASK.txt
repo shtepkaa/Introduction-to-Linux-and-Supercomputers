@@ -1,0 +1,42 @@
+One advanced programmer has been preparing 2 mini-project libraries and stored their codes at
+
+src1/ 
+
+and 
+
+src2/
+
+folders.
+
+This programmer decided to organize 2 static libraries from the source codes and store them at
+
+libs/ 
+
+folder.
+
+He has also prepared appropriate main source-code files for preparation of executables as
+
+main1.c and main2.c 
+
+main1.c -- should call only functions from library from src1/
+
+main2.c -- should call only functions from library from src2/
+
+Suddenly, include directives, compilation scripts and Makefile were lost!
+Help him to restore the project and create the 2 executables out of main1.c and main2.c for his project.
+
+
+(2 pts) 1) Restore the #include directives lost at source code files. Leave the comments about placement of includes.
+
+(2 pts)  2) Prepare the 2 static libraries and save them at libs/ folder
+
+(3 pts)  3) Prepare bash-script with commands allowing user prepare the libraries and compile the final project
+
+(3 pts) 4) Prepare Makefile with several targets 
+-- Target 1 -- compiles the whole project  (libraries and executables)
+-- Target 2 -- compiles only the project of main1.c with library from src1
+-- Target 3 -- compiles only the project of main2.c with library from src2
+-- Target 4 -- removes executables, object files and libraries (if they exist)
+
+Tips:
+For call of sin and cos functions use -lm compiler's flag

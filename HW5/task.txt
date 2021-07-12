@@ -1,0 +1,8 @@
+Take the mini-n body GPU (https://github.com/harrism/mini-nbody) implementation and collect the code performance at the GPU of Zhores sandbox for different problem dimensionalities: 
+N from 100 k particles to 500 k particles
+
+ 
+
+Try the profiling of the executables and multiple options for compilation as already built-in at the repository. Collect your timings and compare to several cases at CPU at least.
+
+ 

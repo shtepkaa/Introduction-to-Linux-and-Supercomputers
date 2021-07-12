@@ -1,0 +1,7 @@
+Zhores run
+1. manual start with different oprimizers g, Og, O1, O2, O3, Ofast: ./gcc_run.sh <optimizer> 
+2. run script with file name result_Zhores: ./run_script.sh <file name> 
+
+PC run
+1.  run script with file name result_PC: bash run_script.sh <file name> 
+

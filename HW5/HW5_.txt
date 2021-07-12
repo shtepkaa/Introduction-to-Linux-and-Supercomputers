@@ -1,0 +1,117 @@
+_________________________________________
+result:
+_________________________________________
+cpu nbody-orig
+100000, 8426.177
+cpu nbody-orig
+200000, 16144.946
+cpu nbody-orig
+300000, 25321.996
+cpu nbody-orig
+400000, 33735.504
+cpu nbody-orig
+500000, 42091.479
+cpu nbody-block
+100000, 8604.207
+cpu nbody-block
+200000, 20194.088
+cpu nbody-block
+300000, 30226.136
+cpu nbody-block
+400000, 40236.951
+cpu nbody-block
+500000, 50455.218
+cpu nbody-soa
+100000, 10040.161
+cpu nbody-soa
+200000, 18739.264
+cpu nbody-soa
+300000, 30271.321
+cpu nbody-soa
+400000, 40345.175
+cpu nbody-soa
+500000, 50361.484
+cpu nbody-unroll
+100000, 10104.412
+cpu nbody-unroll
+200000, 20212.228
+cpu nbody-unroll
+300000, 30342.761
+cpu nbody-unroll
+400000, 39618.125
+cpu nbody-unroll
+500000, 50463.139
+gpu nbody-orig
+100000, 69.369
+gpu nbody-orig
+200000, 86.802
+gpu nbody-orig
+300000, 85.064
+gpu nbody-orig
+400000, 78.568
+gpu nbody-orig
+500000, 73.377
+gpu nbody-block
+100000, 119.275
+gpu nbody-block
+200000, 127.923
+gpu nbody-block
+300000, 130.813
+gpu nbody-block
+400000, 131.689
+gpu nbody-block
+500000, 132.348
+gpu nbody-soa
+100000, 59.597
+gpu nbody-soa
+200000, 66.940
+gpu nbody-soa
+300000, 68.757
+gpu nbody-soa
+400000, 69.695
+gpu nbody-soa
+500000, 70.333
+gpu nbody-unroll
+100000, 116.190
+gpu nbody-unroll
+200000, 125.699
+gpu nbody-unroll
+300000, 128.482
+gpu nbody-unroll
+400000, 129.287
+gpu nbody-unroll
+500000, 129.642
+_________________________________________
+run using:
+bash script.sh >> result.txt
+_________________________________________
+code in script.sh:
+#!/bin/bash
+names=(nbody-orig nbody-block nbody-soa nbody-unroll)
+numbers=(100000 200000 300000 400000 500000)
+units=(cpu gpu)
+for unit in "${units[@]}"; do
+        for name in "${names[@]}"; do
+                for number in "${numbers[@]}"; do
+			echo $unit $name
+                        srun -n 1 -p $unit ./$name $number
+                done
+        done
+done
+_______________________________________
+Also in work used following commands (used code from directory cuda):
+sinfo
+salloc -p gpu -n 1 --nodelist=gn01
+ssh gn01
+nvcc -arch=sm_35 -I../ -DSHMOO -o nbody-orig nbody-orig.cu
+nvcc -arch=sm_35 -I../ -DSHMOO -o nbody-block nbody-block.cu
+nvcc -arch=sm_35 -I../ -DSHMOO -o nbody-soa nbody-soa.cu 
+nvcc -arch=sm_35 -I../ -DSHMOO -o nbody-unroll nbody-unroll.cu 
+_________________________________________
+used "module list" get:
+Currently Loaded Modulefiles:
+  1) gpu/cuda-8.0
+_________________________________________
+
+
+

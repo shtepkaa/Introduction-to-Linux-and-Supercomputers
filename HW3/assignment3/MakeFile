@@ -1,0 +1,26 @@
+path=/home/olga/Linux_course/HW3/assignment3
+CC=gcc
+CFLAGS=-c -Wall
+
+all: clean main1 main2 
+
+clean:
+	rm $(path)/libs/src1/* $(path)/libs/src2/* $(path)/src1/*.o $(path)/src2/*.o $(path)/*.out || true
+	rmdir $(path)/libs/* || true
+
+main1:
+	mkdir $(path)/libs/src1 || true 
+	$(CC) $(CFLAGS) $(path)/src1/liblib1.c -o $(path)/src1/liblib1.o
+	$(CC) $(CFLAGS) $(path)/src1/liblib2.c -o $(path)/src1/liblib2.o
+	$(CC) $(CFLAGS) $(path)/src1/liblib3.c -o $(path)/src1/liblib3.o
+	ar rc $(path)/libs/src1/minilib.a $(path)/src1/liblib1.o $(path)/src1/liblib2.o $(path)/src1/liblib3.o
+	gcc main1.c $(path)/libs/src1/minilib.a -o main1.out -lm
+	./main1.out
+
+main2:
+	mkdir $(path)/libs/src2 || true
+	$(CC) $(CFLAGS) $(path)/src2/liblib1.c -o $(path)/src2/liblib1.o
+	$(CC) $(CFLAGS) $(path)/src2/liblib2.c -o $(path)/src2/liblib2.o
+	ar rc $(path)/libs/src2/minilib.a $(path)/src2/liblib1.o $(path)/src2/liblib2.o
+	gcc main2.c $(path)/libs/src2/minilib.a -o main2.out -lm
+	./main2.out

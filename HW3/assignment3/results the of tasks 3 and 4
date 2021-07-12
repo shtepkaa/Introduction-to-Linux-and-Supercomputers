@@ -1,0 +1,51 @@
+(base) olga@olga-PCMint:~/Linux_course/HW3/assignment3$ ./script.sh 
+WOW minilib1 
+HELLO minilib1 
+WOW WOW minilib1 
+WOW WOW minilib2 
+GOOD BYE minilib2 
+(base) olga@olga-PCMint:~/Linux_course/HW3/assignment3$ make -f MakeFile
+rm /home/olga/Linux_course/HW3/assignment3/libs/src1/* /home/olga/Linux_course/HW3/assignment3/libs/src2/* /home/olga/Linux_course/HW3/assignment3/src1/*.o /home/olga/Linux_course/HW3/assignment3/src2/*.o /home/olga/Linux_course/HW3/assignment3/*.out || true
+rmdir /home/olga/Linux_course/HW3/assignment3/libs/* || true
+mkdir /home/olga/Linux_course/HW3/assignment3/libs/src1 || true 
+gcc -c -Wall /home/olga/Linux_course/HW3/assignment3/src1/liblib1.c -o /home/olga/Linux_course/HW3/assignment3/src1/liblib1.o
+gcc -c -Wall /home/olga/Linux_course/HW3/assignment3/src1/liblib2.c -o /home/olga/Linux_course/HW3/assignment3/src1/liblib2.o
+gcc -c -Wall /home/olga/Linux_course/HW3/assignment3/src1/liblib3.c -o /home/olga/Linux_course/HW3/assignment3/src1/liblib3.o
+ar rc /home/olga/Linux_course/HW3/assignment3/libs/src1/minilib.a /home/olga/Linux_course/HW3/assignment3/src1/liblib1.o /home/olga/Linux_course/HW3/assignment3/src1/liblib2.o /home/olga/Linux_course/HW3/assignment3/src1/liblib3.o
+gcc main1.c /home/olga/Linux_course/HW3/assignment3/libs/src1/minilib.a -o main1.out -lm
+./main1.out
+WOW minilib1 
+HELLO minilib1 
+WOW WOW minilib1 
+mkdir /home/olga/Linux_course/HW3/assignment3/libs/src2 || true
+gcc -c -Wall /home/olga/Linux_course/HW3/assignment3/src2/liblib1.c -o /home/olga/Linux_course/HW3/assignment3/src2/liblib1.o
+gcc -c -Wall /home/olga/Linux_course/HW3/assignment3/src2/liblib2.c -o /home/olga/Linux_course/HW3/assignment3/src2/liblib2.o
+ar rc /home/olga/Linux_course/HW3/assignment3/libs/src2/minilib.a /home/olga/Linux_course/HW3/assignment3/src2/liblib1.o /home/olga/Linux_course/HW3/assignment3/src2/liblib2.o
+gcc main2.c /home/olga/Linux_course/HW3/assignment3/libs/src2/minilib.a -o main2.out -lm
+./main2.out
+WOW WOW minilib2 
+GOOD BYE minilib2 
+(base) olga@olga-PCMint:~/Linux_course/HW3/assignment3$ make -f MakeFile clean
+rm /home/olga/Linux_course/HW3/assignment3/libs/src1/* /home/olga/Linux_course/HW3/assignment3/libs/src2/* /home/olga/Linux_course/HW3/assignment3/src1/*.o /home/olga/Linux_course/HW3/assignment3/src2/*.o /home/olga/Linux_course/HW3/assignment3/*.out || true
+rmdir /home/olga/Linux_course/HW3/assignment3/libs/* || true
+(base) olga@olga-PCMint:~/Linux_course/HW3/assignment3$ make -f MakeFile main1
+mkdir /home/olga/Linux_course/HW3/assignment3/libs/src1 || true 
+gcc -c -Wall /home/olga/Linux_course/HW3/assignment3/src1/liblib1.c -o /home/olga/Linux_course/HW3/assignment3/src1/liblib1.o
+gcc -c -Wall /home/olga/Linux_course/HW3/assignment3/src1/liblib2.c -o /home/olga/Linux_course/HW3/assignment3/src1/liblib2.o
+gcc -c -Wall /home/olga/Linux_course/HW3/assignment3/src1/liblib3.c -o /home/olga/Linux_course/HW3/assignment3/src1/liblib3.o
+ar rc /home/olga/Linux_course/HW3/assignment3/libs/src1/minilib.a /home/olga/Linux_course/HW3/assignment3/src1/liblib1.o /home/olga/Linux_course/HW3/assignment3/src1/liblib2.o /home/olga/Linux_course/HW3/assignment3/src1/liblib3.o
+gcc main1.c /home/olga/Linux_course/HW3/assignment3/libs/src1/minilib.a -o main1.out -lm
+./main1.out
+WOW minilib1 
+HELLO minilib1 
+WOW WOW minilib1 
+(base) olga@olga-PCMint:~/Linux_course/HW3/assignment3$ make -f MakeFile main2
+mkdir /home/olga/Linux_course/HW3/assignment3/libs/src2 || true
+gcc -c -Wall /home/olga/Linux_course/HW3/assignment3/src2/liblib1.c -o /home/olga/Linux_course/HW3/assignment3/src2/liblib1.o
+gcc -c -Wall /home/olga/Linux_course/HW3/assignment3/src2/liblib2.c -o /home/olga/Linux_course/HW3/assignment3/src2/liblib2.o
+ar rc /home/olga/Linux_course/HW3/assignment3/libs/src2/minilib.a /home/olga/Linux_course/HW3/assignment3/src2/liblib1.o /home/olga/Linux_course/HW3/assignment3/src2/liblib2.o
+gcc main2.c /home/olga/Linux_course/HW3/assignment3/libs/src2/minilib.a -o main2.out -lm
+./main2.out
+WOW WOW minilib2 
+GOOD BYE minilib2 
+
